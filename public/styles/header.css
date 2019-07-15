@@ -1,0 +1,19 @@
+header {
+  position: absolute;
+  top:120px;
+  box-sizing: border-box;
+  height: 400px;
+  width: 100%;
+  text-align: center;
+  background-color: rgb(202, 129, 20);
+  background-image: url('/images/fabric-light.png');
+  z-index: 9;
+}
+/* .avatar {
+  justify-content: center;
+  position: relative;
+  left: 50%;
+} */
+.username {
+  color:#ffffff;
+}
