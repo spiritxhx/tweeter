@@ -13,11 +13,13 @@ textarea {
 .submit {
   float:left;
   font-weight: bold;
+  font-family: 'bungee';
   color: #fff;
-  background-color: rgb(8, 85, 201)
+  background-color: rgb(8, 85, 201);
 }
 
 .counter {
+  font-family: 'bungee';
   float: right;
   font-weight: bolder;
 }
