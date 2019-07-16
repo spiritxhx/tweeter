@@ -1,0 +1,23 @@
+textarea {
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid black;
+  color: black;
+  font-weight: bold;
+  background-color: #f4f1ec;
+  vertical-align: middle;
+  line-height: 13px;
+  margin-top: 13px;
+  margin-bottom: 10px;
+}
+.submit {
+  float:left;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgb(8, 85, 201)
+}
+
+.counter {
+  float: right;
+  font-weight: bolder;
+}
