@@ -91,5 +91,16 @@ const renderTweets = tweets => {
 
 
 $(document).ready(() => {
-  renderTweets(data);
+  // renderTweets(data);
+  const loadTweets = () => {
+    const $form = $('form');
+    $form.on('submit', (event) => {
+      event.preventDefault();
+      $.get('/tweets')
+        .then((data) => {
+          renderTweets(data);
+        });
+    });
+  };
+  loadTweets();
 });
