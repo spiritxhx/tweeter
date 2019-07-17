@@ -68,22 +68,21 @@ $(document).ready(function () {
   const createTweetElement = function (tweet) {
     let $article = $('<article>');
     let $header = $('<header>');
-    let $div1 = $('<div>');
+    let $leftOfHeader = $('<div>');
     let $div = $('<div>');
     let $footer = $('<footer>');
     let $hr = $('<hr>');
 
-    $div1.prepend($('<img>', {src: tweet.user.avatars}));
-    $('<span>').text(tweet.user.name).addClass('person').appendTo($div1);
-
-    $div1.addClass('leftContent').prependTo($header);
-
+    $('<span>').text(tweet.user.name).addClass('person').appendTo($leftOfHeader);
     $('<span>').text(tweet.user.handle).addClass('atPerson').appendTo($header);
+    
+    $leftOfHeader.prepend($('<img>', {src: tweet.user.avatars}));
+    $leftOfHeader.addClass('leftContent').prependTo($header);
 
-    $header.addClass('articleHeader').prependTo($article);
     $('<p>').text(tweet.content.text).appendTo($article);
+    
+    $header.addClass('articleHeader').prependTo($article);
     $article.prependTo($div);
-
     $hr.addClass('line').appendTo($div);
 
     $('<p>').addClass('footerText').text(tweet['created_at']).prependTo($footer);
@@ -91,7 +90,6 @@ $(document).ready(function () {
     $footer.appendTo($div);
     $div.addClass(tweet.user.name);
     $div.addClass('tweetBox');
-    console.log($div);
     return $div;
 
   };
