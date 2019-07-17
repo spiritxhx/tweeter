@@ -25,82 +25,71 @@
     </footer>
       </div> */}
 
-$(document).ready(function () {
 
-  const tweetData = {
+const data = [
+  {
     "user": {
       "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "avatars": "https://i.imgur.com/73hZDYK.png"
+      ,
       "handle": "@SirIsaac"
     },
     "content": {
       "text": "If I have seen further it is by standing on the shoulders of giants"
     },
     "created_at": 1461116232227
-  };
-  const data = [
-    {
-      "user": {
-        "name": "Newton",
-        "avatars": "https://i.imgur.com/73hZDYK.png"
-        ,
-        "handle": "@SirIsaac"
-      },
-      "content": {
-        "text": "If I have seen further it is by standing on the shoulders of giants"
-      },
-      "created_at": 1461116232227
+  },
+  {
+    "user": {
+      "name": "Descartes",
+      "avatars": "https://i.imgur.com/nlhLi3I.png",
+      "handle": "@rd"
     },
-    {
-      "user": {
-        "name": "Descartes",
-        "avatars": "https://i.imgur.com/nlhLi3I.png",
-        "handle": "@rd"
-      },
-      "content": {
-        "text": "Je pense , donc je suis"
-      },
-      "created_at": 1461113959088
-    }
-  ];
+    "content": {
+      "text": "Je pense , donc je suis"
+    },
+    "created_at": 1461113959088
+  }
+];
 
 
-  const createTweetElement = function (tweet) {
-    let $article = $('<article>');
-    let $header = $('<header>');
-    let $leftOfHeader = $('<div>');
-    let $div = $('<div>');
-    let $footer = $('<footer>');
-    let $hr = $('<hr>');
 
-    $('<span>').text(tweet.user.name).addClass('person').appendTo($leftOfHeader);
-    $('<span>').text(tweet.user.handle).addClass('atPerson').appendTo($header);
-    
-    $leftOfHeader.prepend($('<img>', {src: tweet.user.avatars}));
-    $leftOfHeader.addClass('leftContent').prependTo($header);
+const createTweetElement = tweet => {
+  let $article = $('<article>');
+  let $header = $('<header>');
+  let $leftOfHeader = $('<div>');
+  let $div = $('<div>');
+  let $footer = $('<footer>');
+  let $hr = $('<hr>');
 
-    $('<p>').text(tweet.content.text).appendTo($article);
-    
-    $header.addClass('articleHeader').prependTo($article);
-    $article.prependTo($div);
-    $hr.addClass('line').appendTo($div);
+  $('<span>').text(tweet.user.name).addClass('person').appendTo($leftOfHeader);
+  $('<span>').text(tweet.user.handle).addClass('atPerson').appendTo($header);
 
-    $('<p>').addClass('footerText').text(tweet['created_at']).prependTo($footer);
+  $leftOfHeader.prepend($('<img>', { src: tweet.user.avatars }));
+  $leftOfHeader.addClass('leftContent').prependTo($header);
 
-    $footer.appendTo($div);
-    $div.addClass(tweet.user.name);
-    $div.addClass('tweetBox');
-    return $div;
+  $('<p>').text(tweet.content.text).appendTo($article);
 
-  };
+  $header.addClass('articleHeader').prependTo($article);
+  $article.prependTo($div);
+  $hr.addClass('line').appendTo($div);
 
-  const renderTweets = function (tweets) {
-    for (const tweet of tweets) {
-      console.log(tweet);
+  $('<p>').addClass('footerText').text(tweet['created_at']).prependTo($footer);
 
-      $('.tweetContainer').append(createTweetElement(tweet));
-    }
-  };
+  $footer.appendTo($div);
+  $div.addClass(tweet.user.name);
+  $div.addClass('tweetBox');
+  return $div;
 
+};
+
+const renderTweets = tweets => {
+  for (const tweet of tweets) {
+    $('.tweetContainer').append(createTweetElement(tweet));
+  }
+};
+
+
+$(document).ready(() => {
   renderTweets(data);
 });
