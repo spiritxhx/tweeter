@@ -1,18 +1,20 @@
 article {
   /* flex: center; */
+  
   width: 90%;
   margin-top: 20px;
   margin-left: 5%;
   text-align: left;
-  font-weight: bold;
+  
 }
-.tweetContainer {
+.tweetBox {
   /* display: flex; */
   text-align: center;
   margin-top: 80px;
   border: solid 3px;
+  /* font-weight: normal; */
 }
-hr {
+.line {
   margin-top: 20px;
   margin-bottom: 0;
   border: none;
@@ -21,7 +23,13 @@ hr {
   background-color: #333;
 }
 .person {
-  font-weight: lighter;
+  /* font-weight: 100; */
+  padding-bottom: 10px;
+  /* padding-top: 10px; */
+  /* float: inherit; */
+}
+img {
+  text-align: left;
 }
 footer {
   margin-left: 5%;
@@ -30,9 +38,36 @@ footer {
   font-size: 0.75em;
 }
 .articleHeader {
+  /* font-weight: 300; */
   margin-bottom: 30px;
-  /* display: inline; */
+  display: flex;
+  justify-content: space-between;
 }
+
+.leftContent {
+  display: flex;
+  align-items: center;
+}
+
 .atPerson {
-  float: right;
+  visibility: hidden;
+  /* float: right; */
+  padding-top: 10px;
+  color: rgb(173, 172, 172);
+}
+
+.tweetBox:hover .atPerson {
+  visibility: visible;
+}
+
+.tweetContainer:hover img {
+
+}
+.tweetBox:hover {
+  font-weight: 300;
+  box-shadow: 10px 10px 4px #000000;
+}
+
+.warning {
+  color: red;
 }
