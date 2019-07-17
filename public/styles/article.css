@@ -43,7 +43,6 @@ footer {
   justify-content: space-between;
 }
 .articleHeader {
-  /* font-weight: 300; */
   margin-bottom: 30px;
   display: flex;
   justify-content: space-between;
@@ -61,6 +60,12 @@ footer {
   color: rgb(173, 172, 172);
 }
 
+.fontAwesome {
+  padding-top: 15px;
+  padding-right: 30px;
+  color: grey;
+}
+
 .tweetBox:hover .atPerson {
   visibility: visible;
 }
@@ -70,7 +75,7 @@ footer {
 }
 .tweetBox:hover {
   font-weight: 300;
-  box-shadow: 10px 10px 4px #000000;
+  box-shadow: 10px 10px 4px #546288;
 }
 
 .warning {

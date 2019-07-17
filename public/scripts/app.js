@@ -33,8 +33,13 @@ const createTweetElement = tweet => {
   let $footer = $('<footer>');
   let $hr = $('<hr>');
   let $flag = $('<i>').addClass('fas fa-flag');
-  let $fontAwsomeIcons = $('<div>');
+  let $fontAwsomeIcons = $('<span>').addClass('fontAwesome');
+  let $retweet = $('<i>').addClass('fas fa-retweet');
+  let $like = $('<i>').addClass('fas fa-heart');
 
+  $fontAwsomeIcons.append($flag);
+  $fontAwsomeIcons.append($retweet);
+  $fontAwsomeIcons.append($like);
 
   $('<span>').text(tweet.user.name).addClass('person').appendTo($leftOfHeader);
   $('<span>').text(tweet.user.handle).addClass('atPerson').appendTo($header);
@@ -49,7 +54,7 @@ const createTweetElement = tweet => {
   $hr.addClass('line').appendTo($div);
 
   $('<p>').addClass('footerText').text(tweet['created_at']).prependTo($footer);
-
+  $footer.append($fontAwsomeIcons);
   $footer.appendTo($div);
   $div.addClass(tweet.user.name);
   $div.addClass('tweetBox');
@@ -73,11 +78,13 @@ const loadTweets = () => {
 
 // main function
 $(document).ready(() => {
+
   //create the error box
-  const $errorBox = $('<p>').addClass('error').text('empty tweets!');
+  const $errorBox = $('<p>').addClass('error').text("Empty tweets! You didn't input anything!");
   $errorBox.prependTo($('.container')).hide();
   const $errorBox2 = $('<p>').addClass('error').text('Tweets are too long (more than 140 characters)!');
   $errorBox2.prependTo($('.container')).hide();
+
   //post new tweets
   $('form').on('submit', (event) => {
     event.preventDefault();
