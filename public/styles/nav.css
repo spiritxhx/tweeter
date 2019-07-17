@@ -6,9 +6,26 @@ nav {
   width: 100%;
   font-family: 'Bungee', cursive;
   font-size: larger;
-  font-weight: bolder;
+  /* font-weight: bolder; */
   background-color: #4056A1;
   color: #FFFFFF;
   padding: 1.5em;
   z-index: 10;
+  display: flex;
+  justify-content: space-between;
+}
+.newTweets {
+  font-size: 18px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+}
+.createTweets {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+i {
+  margin-left: 50px;
+  color: red;
+  cursor: pointer;
 }

@@ -32,6 +32,9 @@ const createTweetElement = tweet => {
   let $div = $('<div>');
   let $footer = $('<footer>');
   let $hr = $('<hr>');
+  let $flag = $('<i>').addClass('fas fa-flag');
+  let $fontAwsomeIcons = $('<div>');
+
 
   $('<span>').text(tweet.user.name).addClass('person').appendTo($leftOfHeader);
   $('<span>').text(tweet.user.handle).addClass('atPerson').appendTo($header);
@@ -68,16 +71,23 @@ const loadTweets = () => {
     });
 };
 
+// main function
 $(document).ready(() => {
-
+  //create the error box
+  const $errorBox = $('<p>').addClass('error').text('empty tweets!');
+  $errorBox.prependTo($('.container')).hide();
+  const $errorBox2 = $('<p>').addClass('error').text('Tweets are too long (more than 140 characters)!');
+  $errorBox2.prependTo($('.container')).hide();
   //post new tweets
   $('form').on('submit', (event) => {
     event.preventDefault();
     if ($('textarea').val().length === 0) {
-      alert('empty tweets!');
+      $errorBox.slideDown();
     } else if ($('textarea').val().length > 140) {
-      alert('tweets too long!');
+      $errorBox2.slideDown();
     } else {
+      $errorBox.slideUp();
+      $errorBox2.slideUp();
       $.post('/tweets', $('form').serialize())
         .then(() => {
           $('.counter').text('140');
@@ -92,5 +102,14 @@ $(document).ready(() => {
   $.get('/tweets')
     .then((data) => {
       renderTweets(data);
+      $('textarea').focus();
     });
+
+  //toggle effects in create new tweeets on top right corner
+  $('.createTweets').click(() => {
+    $('.new-tweet').toggle('fast', () => {
+      $('textarea').focus();
+    });
+  });
+
 });
