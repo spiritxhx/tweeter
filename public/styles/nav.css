@@ -6,7 +6,6 @@ nav {
   width: 100%;
   font-family: 'Bungee', cursive;
   font-size: larger;
-  /* font-weight: bolder; */
   background-color: #4056A1;
   color: #FFFFFF;
   padding: 1.5em;
@@ -28,4 +27,13 @@ nav {
   margin-left: 50px;
   color: red;
   cursor: pointer;
+}
+
+/* red moving arrow sign */
+ .fa-angle-double-down {
+  animation: mover 1s infinite alternate;
+}
+@keyframes mover {
+  0% { transform: translateY(-3px); } /* Negative -> up */
+  100% { transform: translateY(8px); } /* Positive -> down */
 }

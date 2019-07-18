@@ -5,38 +5,19 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-{/* <div class="">
-  <article>
-    <header class="articleHeader">
-      <div class="leftContent">
-        <img src="https://i.imgur.com/73hZDYK.png" />
-        <span class="person">Newton</span>
-      </div>
-      <span class="atPerson">@Sirisac</span>
-    </header>
-    If I have seen further it is by standing on the shoulders of giants. Hah ahah ah ahah aha hah ahah ahaha
-        </article>
-  <hr class="line">
-    <footer>
-      <p class="footerText">10 days ago</p>
-      <section>
-
-      </section>
-    </footer>
-      </div> */}
-
 const createTweetElement = tweet => {
-  let $article = $('<article>');
-  let $header = $('<header>');
-  let $leftOfHeader = $('<div>');
-  let $div = $('<div>');
-  let $footer = $('<footer>');
-  let $hr = $('<hr>');
-  let $flag = $('<i>').addClass('fas fa-flag');
-  let $fontAwsomeIcons = $('<span>').addClass('fontAwesome');
-  let $retweet = $('<i>').addClass('fas fa-retweet');
-  let $like = $('<i>').addClass('fas fa-heart');
+  const $article = $('<article>');
+  const $header = $('<header>');
+  const $leftOfHeader = $('<div>');
+  const $div = $('<div>');
+  const $footer = $('<footer>');
+  const $hr = $('<hr>');
+  const $flag = $('<i>').addClass('fas fa-flag');
+  const $fontAwsomeIcons = $('<span>').addClass('fontAwesome');
+  const $retweet = $('<i>').addClass('fas fa-retweet');
+  const $like = $('<i>').addClass('fas fa-heart');
 
+  //set the font awesome div
   $fontAwsomeIcons.append($flag);
   $fontAwsomeIcons.append($retweet);
   $fontAwsomeIcons.append($like);
@@ -53,7 +34,9 @@ const createTweetElement = tweet => {
   $article.prependTo($div);
   $hr.addClass('line').appendTo($div);
 
-  $('<p>').addClass('footerText').text(tweet['created_at']).prependTo($footer);
+  //get the time from the given string in database
+  let createdTime = new Date(tweet['created_at']).toString().slice(4, 24);
+  $('<p>').addClass('footerText').text(createdTime).prependTo($footer);
   $footer.append($fontAwsomeIcons);
   $footer.appendTo($div);
   $div.addClass(tweet.user.name);
@@ -89,9 +72,11 @@ $(document).ready(() => {
   $('form').on('submit', (event) => {
     event.preventDefault();
     if ($('textarea').val().length === 0) {
-      $errorBox.slideDown();
+      $errorBox.slideDown();      //open the errorBox
+      $errorBox2.hide();          //close the potential other errorBox
     } else if ($('textarea').val().length > 140) {
-      $errorBox2.slideDown();
+      $errorBox2.slideDown();      //open the errorBox
+      $errorBox.hide();            //close the potential other errorBox
     } else {
       $errorBox.slideUp();
       $errorBox2.slideUp();
