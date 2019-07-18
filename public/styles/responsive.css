@@ -1,4 +1,8 @@
 @media only screen and (min-width: 1024px) {
+  /*
+    make the shifted header takes only the center 90%
+    of the left 40% of the screen 
+   */
   .mainHeader {
     top: 200px;
     width:40%;
@@ -14,6 +18,11 @@
   main {
     top: 200px;
   }
+
+  /*
+    make the shifted container takes only the center 90%
+    of the right 60% of the screen 
+   */
   .container {
     width: 60%;
     float: right;
@@ -27,6 +36,10 @@
   .tweetContainer {
     width: 90%;
   }
+
+  /* 
+    make the navbar's color blue when in desktop view
+  */
   nav {
     background-color: #4056A1;
     background-image: none;
