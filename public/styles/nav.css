@@ -6,7 +6,8 @@ nav {
   width: 100%;
   font-family: 'Bungee', cursive;
   font-size: larger;
-  background-color: #4056A1;
+  background-color: rgb(202, 129, 20);
+  background-image: url('/images/fabric-light.png');
   color: #FFFFFF;
   padding: 1.5em;
   z-index: 10;
@@ -17,6 +18,7 @@ nav {
   font-size: 18px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
+  cursor: pointer;
 }
 .createTweets {
   display: flex;
@@ -24,7 +26,7 @@ nav {
   justify-content: center;
 }
 .fa-angle-double-down {
-  margin-left: 50px;
+  margin-left: 2em;
   color: red;
   cursor: pointer;
 }
