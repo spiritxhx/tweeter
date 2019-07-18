@@ -35,8 +35,10 @@ const createTweetElement = tweet => {
   $hr.addClass('line').appendTo($div);
 
   //get the time from the given string in database
-  let createdTime = new Date(tweet['created_at']).toString().slice(4, 24);
-  $('<p>').addClass('footerText').text(createdTime).prependTo($footer);
+  let createdTime = new Date(tweet['created_at']);
+  // .toString().slice(4, 24)
+
+  $('<p>').addClass('footerText').addClass('timeago').text(jQuery.timeago(createdTime)).prependTo($footer);
   $footer.append($fontAwsomeIcons);
   $footer.appendTo($div);
   $div.addClass(tweet.user.name);
@@ -112,4 +114,6 @@ $(document).ready(() => {
     });
   });
 
+  //hide the compose tweet box on load in
+  $('.new-tweet').hide();
 });

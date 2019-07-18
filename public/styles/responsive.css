@@ -30,11 +30,8 @@
     flex-direction: column;
     align-items: center;
   }
-  .new-tweet {
+  .new-tweet, .tweetContainer {
     width : 90%;
-  }
-  .tweetContainer {
-    width: 90%;
   }
 
   /* 

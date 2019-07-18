@@ -9,6 +9,10 @@ textarea {
   line-height: 13px;
   margin-bottom: 10px;
 }
+
+/*
+  tweet button
+ */
 .submit {
   float:left;
   font-weight: bold;
