@@ -52,7 +52,7 @@ const renderTweets = tweets => {
   }
 };
 
-//render the new added elements
+//render the new added elements(last element of the data)
 const loadTweets = () => {
   $.get('/tweets')
     .then(data => {

@@ -1,6 +1,4 @@
 article {
-  /* flex: center; */
-  
   width: 90%;
   margin-top: 20px;
   margin-left: 5%;
@@ -70,11 +68,11 @@ footer {
   visibility: visible;
 }
 
-.tweetContainer:hover img {
-
-}
+/*
+I use the text-shadow instead of font-weight to avoid the text moving 
+ */
 .tweetBox:hover {
-  font-weight: 300;
+  text-shadow: 0 0 .65px #333, 0 0 .65px #333;  
   box-shadow: 10px 10px 4px #546288;
 }
 
