@@ -1,3 +1,7 @@
+/*
+  separate the header into 2 containers to make them look
+  better in desktop devices
+ */
 .mainHeader {
   position: absolute;
   top:120px;

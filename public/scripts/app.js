@@ -5,6 +5,7 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+//render the front end website using jQuery
 const createTweetElement = tweet => {
   const $article = $('<article>');
   const $header = $('<header>');

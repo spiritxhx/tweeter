@@ -5,6 +5,10 @@ article {
   text-align: left;
   
 }
+
+/*
+  style the tweet box to have the border
+ */
 .tweetBox {
   text-align: center;
   border: solid 3px;
@@ -30,6 +34,10 @@ article {
 img {
   text-align: left;
 }
+
+/*
+  add the style to footer of the article
+ */
 footer {
   margin-left: 5%;
   width: 95%;
