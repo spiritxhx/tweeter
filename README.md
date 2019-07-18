@@ -17,13 +17,16 @@ I used the start codes from forked repo to design this simple clone. Users can s
 - Node 5.10.x or above
 
 ## Screenshots and function demonstration
+1. Initial page
 !["login page"](https://github.com/spiritxhx/tweeter/blob/master/docs/loginPage.png)
 In the login page, we have showed all the tweets in our database, by creation time descending. 
 
 
+2. create new tweets
 !["create new tweets"](https://github.com/spiritxhx/tweeter/blob/master/docs/newTweets.png)
 In create new tweets section, we have a "tweet" button and a counter to count the text length of input, and when the input is not valid, an error will pop up on the screen. 
 
 
+3. responsive design
 !["responsive design"](https://github.com/spiritxhx/tweeter/blob/master/docs/responsiveDesign.png)
 In this page, we can see clearly that this website has a responsive design and the layout in smaller screen(lower resolution screen) is different and more straight forward. 
