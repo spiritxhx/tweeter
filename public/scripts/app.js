@@ -17,7 +17,7 @@ const createTweetElement = tweet => {
   const $retweet = $('<i>').addClass('fas fa-retweet');
   const $like = $('<i>').addClass('fas fa-heart');
 
-  //set the font awesome div
+  //set the font awesome container
   $fontAwsomeIcons.append($flag);
   $fontAwsomeIcons.append($retweet);
   $fontAwsomeIcons.append($like);
@@ -45,6 +45,7 @@ const createTweetElement = tweet => {
 
 };
 
+//loop through the Array of data and render it within the tweetContainer
 const renderTweets = tweets => {
   for (const tweet of tweets) {
     $('.tweetContainer').prepend(createTweetElement(tweet));
@@ -64,33 +65,40 @@ $(document).ready(() => {
 
   //create the error box
   const $errorBox = $('<p>').addClass('error').text("Empty tweets! You didn't input anything!");
-  $errorBox.prependTo($('.container')).hide();
   const $errorBox2 = $('<p>').addClass('error').text('Tweets are too long (more than 140 characters)!');
+  //hide the errorBox by default
+  $errorBox.prependTo($('.container')).hide();
   $errorBox2.prependTo($('.container')).hide();
 
   //post new tweets
   $('form').on('submit', (event) => {
     event.preventDefault();
+
+    //empty input error
     if ($('textarea').val().length === 0) {
       $errorBox.slideDown();      //open the errorBox
       $errorBox2.hide();          //close the potential other errorBox
+
+      //inputs are too long
     } else if ($('textarea').val().length > 140) {
       $errorBox2.slideDown();      //open the errorBox
       $errorBox.hide();            //close the potential other errorBox
     } else {
+
+      //post the tweet contents into the server
       $errorBox.slideUp();
       $errorBox2.slideUp();
       $.post('/tweets', $('form').serialize())
         .then(() => {
-          $('.counter').text('140');
-          $('textarea').val("");
-          loadTweets();
+          $('.counter').text('140');    //clear the counter
+          $('textarea').val("");        //clear the input texts
+          loadTweets();                 //wait until the post is done then render the new list
         })
         .fail(error => console.log(error));
     }
   });
 
-  //initial render
+  //initial render the tweets from database
   $.get('/tweets')
     .then((data) => {
       renderTweets(data);
